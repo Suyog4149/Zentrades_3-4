@@ -1,0 +1,31 @@
+document.getElementById('nextBtn').addEventListener('click', function () {
+    // Move to step 2
+    document.querySelector('.step-1').style.display = 'none';
+    document.querySelector('.step-2').style.display = 'block';
+});
+
+document.getElementById('backBtn').addEventListener('click', function () {
+    // Move back to step 1
+    document.querySelector('.step-2').style.display = 'none';
+    document.querySelector('.step-1').style.display = 'block';
+});
+
+document.getElementById('cancelBtn').addEventListener('click', function () {
+    // Cancel import and go back to the main page
+    alert('Import canceled.');
+    window.location.href = 'main.html';
+});
+
+document.getElementById('submitBtn').addEventListener('click', function () {
+    // Get the selected fields and import the products
+    var selectedFields = document.getElementById('fieldsDisplay');
+    var fieldsArray = [];
+    for (var i = 0; i < selectedFields.options.length; i++) {
+        if (selectedFields.options[i].selected) {
+            fieldsArray.push(selectedFields.options[i].value);
+        }
+    }
+    // Use fieldsArray to display the products based on the selected fields
+    alert('Products imported successfully!');
+    window.location.href = 'main.html';
+});
